@@ -87,7 +87,7 @@ function Navigation() {
         >
           <Bell size={20} />
           <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            Duyurular
+            Bildirimler
           </span>
         </NavLink>
 
