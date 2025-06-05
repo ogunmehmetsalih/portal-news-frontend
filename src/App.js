@@ -57,7 +57,7 @@ function Navigation() {
       <nav className="sidebar group w-16 hover:w-64 transition-all duration-300 ease-in-out bg-[#1a1f37] dark:bg-gray-900 text-white p-4 flex flex-col">
         <div className="flex items-center justify-center mb-10">
           <img
-            src="/30691intellium_logo_2.png"
+            src="/trt.png"
             alt="Intellium"
             className="w-14 h-14 object-contain"
           />
@@ -171,7 +171,7 @@ function Navigation() {
         >
           <UserCog size={20} />
           <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            Kullanıcılar
+            Üyeler
           </span>
         </NavLink>
       </nav>
