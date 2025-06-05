@@ -1,0 +1,341 @@
+# Portal News Frontend - Kapsamlı Cursor Rules
+
+## 🎨 Design System Kuralları
+
+### Renk Sistemi
+- Her zaman `design-system/src/tokens/colors.js` dosyasındaki renk tokenlerini kullan
+- Ana renkler: Ana UI elementleri için `colors.primary.*` kullan
+- Yetenekler: `colors.skills.*` önceden tanımlanmış yetenek renklerini kullan
+- Durum renkleri: Başarı/hata/uyarı durumları için `colors.status.*` kullan
+- Gri tonları: Metin ve arka planlar için `colors.gray.*` kullan
+- Tema renkleri: Light/Dark mod geçişleri için CSS değişkenlerini kullan
+
+### Komponent Standartları
+- Tüm komponentler responsive olmalı (mobile-first yaklaşım)
+- Styling için Tailwind CSS sınıfları kullan
+- `dark:` sınıfları ile dark mode desteği ekle
+- `hover:` sınıfları ve geçişler ile hover efektleri ekle
+- Tutarlı boşluk kullanımı: gap-2, gap-4, gap-6, gap-8
+- Loading states için skeleton komponentleri kullan
+- Error boundaries ekle
+- Accessibility standartlarına uy (WCAG 2.1 AA)
+
+### Tipografi Kuralları
+- Başlıklar: Her zaman Ant Design Typography komponentlerini kullan (Title, Text)
+- Font ağırlıkları: `font-medium`, `font-semibold`, `font-bold`
+- Metin renkleri: 
+  - Light mode: Başlıklar için `text-gray-900`, gövde metni için `text-gray-600`
+  - Dark mode: Başlıklar için `text-white`, gövde metni için `text-gray-300`
+- Font boyutları: `text-xs`, `text-sm`, `text-base`, `text-lg`, `text-xl`, `text-2xl`, `text-3xl`
+- Line height: `leading-tight`, `leading-normal`, `leading-relaxed`
+- Letter spacing: `tracking-tight`, `tracking-normal`, `tracking-wide`
+
+### Form Komponentleri
+- Her zaman Ant Design Form komponentlerini kullan
+- Zorunlu alanlar: `<span className="text-red-500">*</span>` ile kırmızı yıldız ekle
+- Tüm inputlar için placeholder metinleri ekle
+- Uygun validasyon kuralları uygula
+- Şifre alanları: Göster/gizle toggle ve güç göstergesi ekle
+- Gerektiğinde şifre oluşturma fonksiyonu ekle
+- Real-time validasyon uygula
+- Form error handling ve success messages
+- Disabled states için uygun styling
+
+### Badge/Tag Komponentleri
+- Yetenekler: `hover:scale-105` efekti ile rounded-full badge'ler kullan
+- Diller: Farklı renk şemaları kullan (mavi, mor, yeşil)
+- Durum etiketleri: Duruma göre uygun renkler kullan
+- Rol etiketleri: Role özel renkler kullan
+- Badge boyutları: `text-xs`, `text-sm` için farklı padding değerleri
+- Icon + text kombinasyonları için spacing
+
+### Layout Standartları
+- İçerik bölümleri için Card komponentleri kullan
+- Dikey düzenlemeler için `className="space-y-6"` ile uygun boşluk ekle
+- Grid düzenleri: `grid grid-cols-1 lg:grid-cols-3 gap-6`
+- Bölüm başlıkları: `border-b` ve padding ile alt border ekle
+- Container max-width kullan: `max-w-7xl mx-auto`
+- Responsive breakpoints: `sm:`, `md:`, `lg:`, `xl:`, `2xl:`
+
+### Button Standartları
+- Ana butonlar: `type="primary"` ile Ant Design Button kullan
+- Icon butonları: @ant-design/icons'dan anlamlı iconlar ekle
+- Loading durumları: Loading göstergelerini uygula
+- Hover efektleri: Yumuşak geçişler ekle
+- Button boyutları: `size="small"`, `size="middle"`, `size="large"`
+- Ghost ve link button varyantları
+- Disabled states ve proper feedback
+
+### Modal/Drawer Standartları
+- Drawer'lar için sağ yerleşim kullan: `placement="right"`
+- Standart genişlik: Formlar için 500px
+- Header'da `extra` prop ile aksiyon butonları ekle
+- Kapsamlı form validasyon kuralları uygula
+- Modal için responsive boyutlar
+- Proper z-index management
+- Focus trap ve keyboard navigation
+
+### Animation & Transition Kuralları
+- Hover efektleri: `transition-all duration-300 ease-in-out`
+- Scale efektleri: `hover:scale-105`
+- Transform efektleri: `hover:translate-y-1`
+- Opacity geçişleri: `hover:opacity-80`
+- Loading animasyonları: Custom keyframes kullan
+- Page transitions için proper routing animations
+
+## 🚀 Performance Kuralları
+
+### React Optimizasyonu
+- Pahalı komponentler için React.memo kullan
+- Listelerde uygun key prop'ları uygula
+- Ağır komponentleri lazy load et
+- Görselleri ve asset'leri optimize et
+- useMemo ve useCallback doğru kullan
+- Component re-render'larını minimize et
+
+### Bundle Optimizasyonu
+- Code splitting uygula
+- Tree shaking için proper imports
+- Unused dependencies temizle
+- CSS purging aktif et
+- Image optimization (WebP, AVIF)
+
+## 🔒 Security Kuralları
+
+### Şifre Oluşturma
+- Utils'den standardize şifre oluşturucuyu kullan
+- Varsayılan uzunluk: 12 karakter
+- Tüm karakter tiplerini dahil et (büyük, küçük, sayı, sembol)
+- Şifre güç göstergesi ekle
+- Göster/gizle fonksiyonu uygula
+
+### Data Validation
+- Input sanitization uygula
+- XSS protection
+- CSRF token kullan
+- API response validation
+- File upload security
+
+## 📱 Responsive Design Kuralları
+
+### Mobile-First Yaklaşım
+- Önce mobile tasarla, sonra desktop'a uyarla
+- Breakpoint'ler: sm (640px), md (768px), lg (1024px), xl (1280px), 2xl (1536px)
+- Grid düzenleri: Her zaman mobile (1 sütun) varyantı dahil et
+- Touch-friendly buton boyutları (min 44px)
+- Proper viewport meta tag
+
+### Device-Specific Optimizations
+- iOS Safari için -webkit-appearance: none
+- Android için touch-action optimizations
+- Tablet için intermediate layouts
+- Desktop için hover states
+
+## ♿ Accessibility Kuralları
+
+### ARIA ve Semantic HTML
+- Uygun ARIA label'ları ekle
+- Semantic HTML elementleri kullan
+- Renk kontrast oranlarını sağla (4.5:1 minimum)
+- Klavye navigasyon desteği ekle
+- Screen reader compatibility
+- Focus indicators
+- Skip links for navigation
+
+### Form Accessibility
+- Label ile input ilişkilendirmeleri
+- Error messages için aria-describedby
+- Required fields için aria-required
+- Fieldset ve legend kullanımı
+
+## 📁 Dosya Yapısı Kuralları
+
+### Proje Organizasyonu
+```
+src/
+├── components/          # Yeniden kullanılabilir UI komponentleri
+│   ├── common/         # Genel komponentler (Button, Input, Modal)
+│   ├── layout/         # Layout komponentleri (Header, Footer, Sidebar)
+│   └── feature/        # Özellik-spesifik komponentler
+├── pages/              # Sayfa komponentleri  
+├── hooks/              # Custom React hooks
+├── services/           # API servisleri ve external integrations
+├── utils/              # Utility fonksiyonları
+├── constants/          # Uygulama sabitleri
+├── contexts/           # React Context providers
+├── design-system/      # Design token'ları ve komponentleri
+│   ├── src/
+│   │   ├── components/ # Yeniden kullanılabilir design komponentleri
+│   │   ├── tokens/     # Design token'ları (renkler, spacing)
+│   │   └── utils/      # Design ile ilgili utility'ler
+├── assets/             # Statik dosyalar (images, fonts, icons)
+├── styles/             # Global CSS ve tema dosyaları
+└── tests/              # Test dosyaları
+```
+
+### Import Standartları
+```javascript
+// React ve React hooks (ilk sırada)
+import React, { useState, useEffect, useMemo } from 'react';
+
+// Third-party libraries (alfabetik sıra)
+import { Button, Card, Form, Input, Typography } from 'antd';
+import { EditOutlined, UserOutlined, DeleteOutlined } from '@ant-design/icons';
+import { Route, Routes, useNavigate } from 'react-router-dom';
+
+// Local imports (göreli yol, alfabetik sıra)
+import HeaderComponent from '../components/HeaderComponent';
+import { useAuth } from '../hooks/useAuth';
+import { apiService } from '../services/apiService';
+
+// Utils ve tokens (son sırada)
+import { colors } from '../design-system/src/tokens/colors';
+import { generatePassword } from '../design-system/src/utils/passwordGenerator';
+import { formatDate } from '../utils/dateUtils';
+```
+
+## 🏷️ Naming Conventions
+
+### Genel Naming
+- Komponentler: PascalCase (ör. `SkillBadge`, `ProfilePage`)
+- Dosyalar: Komponentler için PascalCase, utilities için camelCase
+- Değişkenler: camelCase
+- Sabitler: UPPER_SNAKE_CASE
+- CSS sınıfları: Tailwind ile kebab-case
+- API endpoints: kebab-case
+- Database fields: snake_case
+
+### Function Naming
+- Event handlers: `handleClick`, `onSubmit`, `onInputChange`
+- Boolean functions: `isValid`, `hasPermission`, `canEdit`
+- Async functions: `fetchData`, `submitForm`, `loadUser`
+- Utility functions: `formatCurrency`, `validateEmail`, `parseDate`
+
+## 🧪 Test Kuralları
+
+### Unit Testing
+- Jest ve React Testing Library kullan
+- Component testing için render ve user events
+- Mock external dependencies
+- Test coverage minimum %80
+- Snapshot testing dikkatli kullan
+
+### Integration Testing
+- API integrations test et
+- Form submissions test et
+- Navigation flows test et
+- Error handling scenarios
+
+## 🔄 State Management Kuralları
+
+### Local State
+- Local komponent state için useState kullan
+- Form yönetimi için form hook'ları kullan
+- Uygun loading ve error state'leri uygula
+- State'i komponentlere mümkün olduğunca yakın tut
+
+### Global State
+- Context API small to medium scale için
+- Redux Toolkit büyük scale uygulamalar için
+- State normalization uygula
+- Immutable updates
+
+## 🌐 API Integration Kuralları
+
+### HTTP Requests
+- Axios veya fetch API kullan
+- Request/Response interceptors
+- Error handling middleware
+- Loading states management
+- Retry logic for failed requests
+
+### Data Fetching
+- React Query veya SWR kullan
+- Cache management
+- Background refetching
+- Optimistic updates
+- Pagination support
+
+## 🎯 Code Quality Kuralları
+
+### Linting ve Formatting
+- ESLint kurallarına uy
+- Prettier formatting kullan
+- Unused import'ları temizle (Tag import uyarısı gibi)
+- Console.log'ları production'da temizle
+- TypeScript strict mode kullan
+
+### Code Documentation
+- Utility fonksiyonları için JSDoc yorumları ekle
+- Complex logic için inline comments
+- README dosyalarını güncel tut
+- API documentation maintain et
+
+### Error Handling
+- Try-catch blokları uygula
+- User-friendly error messages
+- Error logging implement et
+- Graceful degradation
+- Fallback UI components
+
+## 🚢 Deployment Kuralları
+
+### Build Optimization
+- Production build'ler için optimization
+- Environment variables yönetimi
+- Asset minification
+- Bundle analysis
+- Performance monitoring
+
+### Version Control
+- Conventional commits kullan
+- Feature branch strategy
+- Proper PR reviews
+- Changelog maintenance
+
+## 📊 Monitoring ve Analytics
+
+### Performance Monitoring
+- Core Web Vitals tracking
+- Bundle size monitoring
+- Runtime performance metrics
+- Error tracking (Sentry vb.)
+
+### User Analytics
+- User interaction tracking
+- Feature usage analytics
+- A/B testing setup
+- Conversion funnel analysis
+
+## 🔧 Development Tools
+
+### DevTools Setup
+- React DevTools
+- Redux DevTools
+- Network monitoring
+- Performance profiling
+- Accessibility auditing tools
+
+### IDE Configuration
+- ESLint extension
+- Prettier extension
+- Auto-formatting on save
+- Bracket pair colorization
+- GitLens for Git integration
+
+## 🌍 Internationalization (i18n)
+
+### Multi-language Support
+- react-i18next setup
+- Language detection
+- RTL support for Arabic/Hebrew
+- Number and date formatting
+- Pluralization rules
+
+### Content Management
+- Translation key naming conventions
+- Missing translation fallbacks
+- Dynamic content translation
+- SEO for multiple languages
+
+Yeni komponentler oluştururken veya mevcut olanları değiştirirken, proje genelinde tutarlılığı korumak için her zaman bu standartları takip et. Bu kurallar, kodun okunabilirliğini, maintainability'sini ve performansını artırmak için tasarlanmıştır. 

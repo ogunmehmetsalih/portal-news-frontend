@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portal-news-frontend
+  labels:
+    app: portal-news-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: portal-news-frontend
+  template:
+    metadata:
+      labels:
+        app: portal-news-frontend
+    spec:
+      containers:
+        - name: portal-news-frontend
+          image: msalihogun/portal-news-frontend:latest
+          ports:
+            - containerPort: 3000
