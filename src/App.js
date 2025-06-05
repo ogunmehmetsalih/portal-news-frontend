@@ -73,7 +73,7 @@ function Navigation() {
         >
           <LayoutDashboard size={20} />
           <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            Dashboard
+            Ana Sayfa
           </span>
         </NavLink>
 
